@@ -11,6 +11,12 @@ Rails.application.routes.draw do
 
   get 'rpg/house'
 
+  root 'rpg#index'
+
+  post "rpg/process" => "rpg#new" , :via=>[:get, :post]
+
+  get "rpg" =>"rpg#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
