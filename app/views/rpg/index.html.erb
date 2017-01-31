@@ -1,2 +1,69 @@
-<h1>Rpg#index</h1>
-<p>Find me in app/views/rpg/index.html.erb</p>
+<h1>Ninja Gold</h1>
+
+<p>Your Gold: <strong><%= @total_golds %></strong></p>​
+
+<form action="/rpg/process" method="post">
+	
+  <input name="authenticity_token" value="<%= form_authenticity_token%>" type="hidden">
+  <input type="hidden" name="building" value="casino">
+  <ul>
+<li><strong>Casino</strong></li>
+<li>Earns 0-50 golds</li>
+<li><input type="submit" value="Find Gold!"/></li>
+
+  </ul>
+</form>
+
+<form action="/rpg/process" method="post">
+	
+  <input name="authenticity_token" value="<%= form_authenticity_token%>" type="hidden">
+  <input type="hidden" name="building" value="farm">
+  <ul>
+<li><strong>Farm</strong></li>
+<li>Earns 10-20 golds</li>
+<li><input type="submit" value="Find Gold!"/></li>
+
+  </ul>
+</form>
+
+<form action="/rpg/process" method="post">
+	
+  <input name="authenticity_token" value="<%= form_authenticity_token%>" type="hidden">
+  <input type="hidden" name="building" value="cave">
+  <ul>
+<li><strong>Cave</strong></li>
+<li>Earns 5-10 golds</li>
+<li><input type="submit" value="Find Gold!"/></li>
+
+  </ul>
+</form>
+
+<form action="/rpg/process" method="post">
+	
+  <input name="authenticity_token" value="<%= form_authenticity_token%>" type="hidden">
+  <input type="hidden" name="building" value="house">
+  <ul>
+<li><strong>House</strong></li>
+<li>Earns 2-5 golds</li>
+<li><input type="submit" value="Find Gold!"/></li>
+
+  </ul>
+</form>
+
+	<div>​
+		<p>Activities:</p>​
+		<div id="activities">​
+			<% if @activities %>​
+				<!-- Show the messages by reverse to see the latest activity -->
+				<% @activities.reverse.each do |element| %>​
+					<% if element.include?("Earned") %>​
+						<p class="earned"><%= element %></p>​
+					<% else %>​
+						<p class="lost"><%= element %></p>​
+					<% end %>​
+				<% end %>​
+			<% end %>​
+		</div>​
+	</div>​
+
+
